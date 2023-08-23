@@ -16,21 +16,5 @@ public class UsersApplication {
         SpringApplication.run(UsersApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner demoJpa(UserRepository repository) {
-        return (args) -> {
-            User dafaultUser = new User(
-                    "name",
-                    "lastName",
-                    "email.lu",
-                    "password",
-                    new ArrayList<>()
-            );
-            repository.save(dafaultUser);
-            System.out.println(repository.existsById(1L));
-            repository.delete(dafaultUser);
-            System.out.println(repository.existsById(1L));
 
-        };
-    }
 }
